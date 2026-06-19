@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://brandomeryseq.github.io/officialm-leyu-com-cn-2/sitemap.xml
