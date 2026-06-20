@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>哈哈体育 · 轻量导航页</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "PingFang SC", "Microsoft YaHei", sans-serif;
+      background: #f2f4f7;
+      color: #2c3e4f;
+      line-height: 1.6;
+      padding: 2rem 1.5rem 4rem;
+    }
+
+    .page {
+      max-width: 1120px;
+      margin: 0 auto;
+    }
+
+    /* 顶部导航 */
+    .top-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.75rem 1.2rem;
+      margin-bottom: 2.5rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid #dce1e8;
+    }
+
+    .site-title a {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: #1f2a36;
+      text-decoration: none;
+      letter-spacing: 0.3px;
+    }
+
+    .site-title a:hover {
+      color: #3d5a73;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.8rem;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      color: #3d5367;
+      font-size: 0.95rem;
+      text-decoration: none;
+      transition: color 0.2s;
+      border-bottom: 1px solid transparent;
+    }
+
+    .nav-links a:hover {
+      color: #1f2a36;
+      border-bottom-color: #b3c2d0;
+    }
+
+    /* hero 区 —— 再次访问 / 收藏入口 */
+    .hero-card {
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 2.8rem 2.2rem;
+      margin-bottom: 2.8rem;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.03), 0 1px 3px rgba(0, 0, 0, 0.03);
+      border: 1px solid #e0e6ed;
+      transition: box-shadow 0.25s;
+    }
+
+    .hero-card:hover {
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.04);
+    }
+
+    .hero-headline {
+      font-size: 1.8rem;
+      font-weight: 470;
+      margin-bottom: 0.65rem;
+      letter-spacing: -0.3px;
+      color: #1b2a3a;
+    }
+
+    .hero-sub {
+      font-size: 1.05rem;
+      color: #54738d;
+      max-width: 680px;
+      margin-bottom: 1.6rem;
+    }
+
+    .hero-intro {
+      background: #f7f9fc;
+      padding: 1.2rem 1.5rem;
+      border-radius: 14px;
+      border-left: 4px solid #b8cfdd;
+      font-size: 0.98rem;
+      color: #2d4255;
+    }
+
+    .hero-intro a {
+      color: #296a4c;
+      text-decoration: none;
+      font-weight: 480;
+      border-bottom: 1px dashed #b3cfbf;
+    }
+
+    .hero-intro a:hover {
+      color: #1d4f38;
+      border-bottom-style: solid;
+    }
+
+    /* 三个场景卡片 */
+    .scenes-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.8rem;
+      margin-bottom: 2.8rem;
+    }
+
+    .scene-card {
+      background: #ffffff;
+      border-radius: 18px;
+      padding: 1.8rem 1.6rem 2rem;
+      border: 1px solid #e3e9f0;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+      transition: transform 0.15s, box-shadow 0.2s;
+    }
+
+    .scene-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.04);
+    }
+
+    .scene-card h3 {
+      font-size: 1.2rem;
+      font-weight: 450;
+      margin-bottom: 0.6rem;
+      color: #1d3142;
+      letter-spacing: 0.2px;
+    }
+
+    .scene-card p {
+      font-size: 0.92rem;
+      color: #435b6e;
+      margin-bottom: 0.35rem;
+    }
+
+    .scene-card .hint-tag {
+      display: inline-block;
+      margin-top: 0.6rem;
+      font-size: 0.8rem;
+      background: #e9edf3;
+      color: #3f5b70;
+      padding: 0.2rem 0.7rem;
+      border-radius: 30px;
+      border: 1px solid #d1dbe6;
+    }
+
+    /* 常见说明摘要 */
+    .faq-tips {
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 2rem 2rem 1.8rem;
+      border: 1px solid #e0e6ed;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.02);
+      margin-bottom: 2.2rem;
+    }
+
+    .faq-tips h2 {
+      font-size: 1.25rem;
+      font-weight: 470;
+      color: #1a2e3f;
+      margin-bottom: 1.1rem;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .faq-tips h2::before {
+      content: "📌";
+      font-size: 1.1rem;
+    }
+
+    .faq-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+      padding: 0.8rem 0;
+      border-bottom: 1px solid #eaeef4;
+    }
+
+    .faq-item:last-child {
+      border-bottom: none;
+    }
+
+    .faq-q {
+      font-weight: 460;
+      color: #294258;
+      font-size: 0.96rem;
+    }
+
+    .faq-a {
+      font-size: 0.9rem;
+      color: #4b647a;
+      margin-top: 0.2rem;
+      line-height: 1.5;
+    }
+
+    .faq-a a {
+      color: #296a4c;
+      text-decoration: none;
+      border-bottom: 1px dotted #b3d0c0;
+    }
+
+    .faq-a a:hover {
+      border-bottom-style: solid;
+      color: #1b4f37;
+    }
+
+    /* 底部收藏提示 */
+    .footer-note {
+      text-align: center;
+      font-size: 0.88rem;
+      color: #5b727f;
+      padding-top: 1.5rem;
+      border-top: 1px solid #d4dce6;
+      margin-top: 0.6rem;
+      letter-spacing: 0.3px;
+    }
+
+    .footer-note span {
+      background: #eef2f7;
+      padding: 0.15rem 0.7rem;
+      border-radius: 30px;
+      border: 1px solid #d3dbe5;
+    }
+
+    /* 响应式 */
+    @media (max-width: 600px) {
+      body {
+        padding: 1.2rem 1rem;
+      }
+
+      .top-nav {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.4rem;
+      }
+
+      .hero-card {
+        padding: 1.8rem 1.2rem;
+      }
+
+      .hero-headline {
+        font-size: 1.45rem;
+      }
+
+      .scenes-grid {
+        gap: 1rem;
+      }
+
+      .faq-tips {
+        padding: 1.4rem 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <!-- 顶部导航 -->
+    <nav class="top-nav">
+      <div class="site-title">
+        <a href="https://zh-haha.com">哈哈体育</a>
+      </div>
+      <div class="nav-links">
+        <a href="#">再次访问</a>
+        <a href="#">新动态</a>
+        <a href="#">收藏夹</a>
+        <a href="#">常见问题</a>
+      </div>
+    </nav>
+
+    <!-- Hero —— 再次访问 + 收藏入口叙述 -->
+    <div class="hero-card">
+      <div class="hero-headline">再次回到这里</div>
+      <div class="hero-sub">对熟悉的内容多一份留意，下次依然可以沿着标记找到。</div>
+      <div class="hero-intro">
+        有些页面值得反复打开，如果不想每次都从头翻找，不妨把<a href="https://zh-haha.com">哈哈体育</a>放进浏览器的收藏夹，或者直接记住这个地址。下一次再来时，节奏和感觉都还在。
+      </div>
+    </div>
+
+    <!-- 三个场景模块 -->
+    <div class="scenes-grid">
+      <div class="scene-card">
+        <h3>早晨 · 快速浏览</h3>
+        <p>打开收藏夹、点开链接，几分钟扫一眼最近的内容。不需要登录，没有多余步骤。</p>
+        <span class="hint-tag">收藏即可</span>
+      </div>
+      <div class="scene-card">
+        <h3>中途 · 稍作停留</h3>
+        <p>午间或傍晚，抽空再看一段。页面简洁，不分散注意力，适合短暂放空。</p>
+        <span class="hint-tag">无干扰</span>
+      </div>
+      <div class="scene-card">
+        <h3>归入习惯 · 反复回来</h3>
+        <p>几次之后就成了下意识的动作。不需要记住太多，知道自己要去哪里就够了。</p>
+        <span class="hint-tag">自然形成</span>
+      </div>
+    </div>
+
+    <!-- 常见说明摘要 FAQ -->
+    <div class="faq-tips">
+      <h2>一些常见留意</h2>
+
+      <div class="faq-item">
+        <span class="faq-q">‣ 我忘记网址了，怎么找回？</span>
+        <div class="faq-a">
+          如果之前收藏过，直接在浏览器书签里查找「哈哈体育」。或者搜索名字也能找到，我们一直使用同一个地址：<a href="https://zh-haha.com">哈哈体育</a>。
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <span class="faq-q">‣ 每次内容有变化吗？</span>
+        <div class="faq-a">
+          部分区域会定期调整，但整体风格和定位保持稳定。常回来的人会慢慢发现细节上的不同。
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <span class="faq-q">‣ 需要在电脑上才能看吗？</span>
+        <div class="faq-a">
+          手机和电脑都可以，页面根据屏幕自动适应。收藏夹在移动端同样好用。
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <span class="faq-q">‣ 如果我很久没回来，页面还在吗？</span>
+        <div class="faq-a">
+          只要地址不变，随时可以回来。不需要重新适应，也不需要额外的操作。
+        </div>
+      </div>
+    </div>
+
+    <!-- 底部收藏提示 -->
+    <div class="footer-note">
+      <span>把页面加入收藏 · 下次无需寻找</span>
+    </div>
+  </div>
+</body>
+</html>
