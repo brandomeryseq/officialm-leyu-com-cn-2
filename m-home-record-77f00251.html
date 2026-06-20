@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>K1体育 · 页面说明</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f7f4ee;
+            font-family: 'Georgia', 'Times New Roman', '宋体', serif;
+            color: #2e2a24;
+            line-height: 1.65;
+            padding: 0 20px;
+        }
+
+        .wrap {
+            max-width: 920px;
+            margin: 0 auto;
+            padding: 60px 0 80px;
+        }
+
+        /* hero */
+        .hero {
+            background: #ece7df;
+            border-radius: 32px;
+            padding: 70px 40px 60px;
+            margin-bottom: 56px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.02);
+            position: relative;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 40px;
+            right: 40px;
+            height: 2px;
+            background: #d4cdc1;
+            opacity: 0.25;
+        }
+
+        .hero h1 {
+            font-size: 2.6rem;
+            font-weight: 400;
+            letter-spacing: 2px;
+            color: #3b352d;
+            margin-bottom: 16px;
+        }
+
+        .hero h1 em {
+            font-style: normal;
+            background: #dfd7cc;
+            padding: 0 8px 0 6px;
+            border-radius: 4px;
+        }
+
+        .hero p {
+            font-size: 1.15rem;
+            color: #4d453b;
+            max-width: 680px;
+            margin: 0 0 18px 0;
+        }
+
+        .hero .note {
+            font-size: 0.95rem;
+            color: #6b6256;
+            border-left: 4px solid #c7bcaa;
+            padding-left: 18px;
+            margin-top: 24px;
+        }
+
+        /* 区块通用 */
+        section {
+            margin-bottom: 52px;
+        }
+
+        .sec-title {
+            font-size: 1.6rem;
+            font-weight: 400;
+            border-bottom: 1px solid #dbd2c6;
+            padding-bottom: 12px;
+            margin-bottom: 28px;
+            color: #3a332b;
+        }
+
+        .sec-title small {
+            font-size: 0.9rem;
+            font-weight: 300;
+            color: #867b6b;
+            margin-left: 10px;
+        }
+
+        .two-col {
+            display: flex;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .two-col > div {
+            flex: 1 1 240px;
+        }
+
+        .feature-item {
+            background: #ffffffdd;
+            border-radius: 16px;
+            padding: 24px 22px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+            border: 1px solid #ece5db;
+        }
+
+        .feature-item h3 {
+            font-size: 1.25rem;
+            font-weight: 400;
+            margin-bottom: 8px;
+            color: #3f372f;
+        }
+
+        .feature-item p {
+            font-size: 0.98rem;
+            color: #4f473c;
+        }
+
+        .quote-box {
+            background: #ede9e1;
+            border-radius: 20px;
+            padding: 32px 36px;
+            margin: 32px 0;
+            font-style: normal;
+            border-left: 6px solid #b8ab99;
+        }
+
+        .quote-box p {
+            margin-bottom: 12px;
+        }
+
+        .quote-box .ref {
+            font-size: 0.92rem;
+            color: #6a6154;
+        }
+
+        .faq-mini {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px 36px;
+        }
+
+        .faq-mini .q {
+            font-weight: 500;
+            color: #3e362e;
+            margin-bottom: 4px;
+            font-size: 1.04rem;
+        }
+
+        .faq-mini .a {
+            font-size: 0.95rem;
+            color: #5a5044;
+            line-height: 1.55;
+        }
+
+        .faq-mini .a a {
+            color: #5f5343;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            text-decoration-thickness: 1px;
+            text-decoration-color: #b8ab99;
+        }
+
+        .faq-mini .a a:hover {
+            background: #dfd7cc;
+            text-decoration-color: #3b352d;
+        }
+
+        .foot-links {
+            margin-top: 60px;
+            padding-top: 32px;
+            border-top: 1px solid #dbd2c6;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 16px;
+        }
+
+        .foot-links .copy {
+            font-size: 0.85rem;
+            color: #7b7163;
+        }
+
+        .foot-links .link-group a {
+            color: #4f4538;
+            text-decoration: none;
+            border-bottom: 1px dotted #b8ab99;
+            margin: 0 12px 0 0;
+            padding-bottom: 2px;
+            font-size: 0.95rem;
+            transition: border 0.15s;
+        }
+
+        .foot-links .link-group a:hover {
+            border-bottom: 1px solid #3b352d;
+        }
+
+        .inline-link {
+            color: #4f4538;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            text-decoration-thickness: 1px;
+            text-decoration-color: #b8ab99;
+            transition: background 0.1s;
+        }
+
+        .inline-link:hover {
+            background: #e0d7cb;
+        }
+
+        @media (max-width: 640px) {
+            .hero {
+                padding: 40px 24px 36px;
+            }
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            .faq-mini {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            .two-col {
+                gap: 20px;
+            }
+            .foot-links {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="wrap">
+
+    <!-- hero -->
+    <div class="hero">
+        <h1>关于 <em>K1体育</em> 的一点说明</h1>
+        <p>我们使用 <a href="https://m-home-k1sports.com" class="inline-link">K1体育</a> 作为日常了解和浏览体育资讯的稳定入口，页面结构清晰，加载顺畅，没有多余的干扰内容。这篇文章简单梳理一下它的布局特点与使用体验，供有同样需要的朋友参考。</p>
+        <div class="note">有时候，一个干净、直接的访问页面，比什么都重要。</div>
+    </div>
+
+    <!-- 优势区：稳定入口 -->
+    <section>
+        <div class="sec-title">稳定入口 · 几个细节 <small>来自实际使用中的观察</small></div>
+        <div class="two-col">
+            <div>
+                <div class="feature-item">
+                    <h3>固定的访问路径</h3>
+                    <p>主域名长期可用，页面结构没有频繁变动，对于习惯把网址存在书签里的人来说，省去了反复确认的麻烦。</p>
+                </div>
+                <div class="feature-item">
+                    <h3>布局偏实用</h3>
+                    <p>没有过度设计，信息层级靠前，导航和内容区分清楚。从主页进入不同分类的操作步数很少，适合快速浏览。</p>
+                </div>
+            </div>
+            <div>
+                <div class="feature-item">
+                    <h3>加载表现稳定</h3>
+                    <p>图片和文本资源经过压缩，即使在网络一般的情况下，首屏内容也能较快呈现。对于资讯类页面来说，这是很实际的优点。</p>
+                </div>
+                <div class="feature-item">
+                    <h3>更新节奏可预期</h3>
+                    <p>内容更新的频率适中，不会一天弹出大量信息，也不会长期不更新。页面维护的节奏感让人比较放心。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 说明区：页面结构解读 -->
+    <section>
+        <div class="sec-title">页面结构说明 <small>以主页为例</small></div>
+        <div class="quote-box">
+            <p>打开 <a href="https://m-home-k1sports.com" class="inline-link">K1体育</a> 的主页，首先看到的是一条横向导航，将不同类别的入口区分开。紧接其下的是卡片式信息流，每条内容都配有标题和摘要，点击后进入详情页。底部有辅助链接，但整体没有悬浮广告或弹窗。</p>
+            <p>这种布局的好处是：用户能很快判断自己需要的信息在哪里，并且不容易误点。对于初次访问的人来说，学习成本几乎为零。</p>
+            <div class="ref">—— 摘自一位长期用户的日常记录</div>
+        </div>
+        <p style="margin-top: 18px; color: #4f473c;">值得注意的是，页面在移动端也做了适配，文字和卡片重新排列，仍然保持可读性。虽然没有花哨的动画，但胜在踏实。</p>
+    </section>
+
+    <!-- FAQ 摘要 -->
+    <section>
+        <div class="sec-title">常见问题摘要 <small>基于社区反馈整理</small></div>
+        <div class="faq-mini">
+            <div>
+                <div class="q">Q: 页面是否需要注册才能浏览？</div>
+                <div class="a">大部分内容可以直接浏览，不需要登录。部分互动功能可能会引导注册，但阅读资讯本身没有限制。更多细节可前往 <a href="https://m-home-k1sports.com">K1体育</a> 查看。</div>
+            </div>
+            <div>
+                <div class="q">Q: 内容主要覆盖哪些领域？</div>
+                <div class="a">以体育资讯和赛事信息为主，涵盖多个主流项目。每篇文章都标注了来源或更新时间，方便判断时效性。</div>
+            </div>
+            <div>
+                <div class="q">Q: 页面是否存在大量广告？</div>
+                <div class="a">根据长期观察，广告数量控制在合理范围内，没有影响正常阅读。页面也没有自动播放的音频或视频。</div>
+            </div>
+            <div>
+                <div class="q">Q: 移动端和桌面端体验一致吗？</div>
+                <div class="a">核心内容一致，布局会根据屏幕宽度自适应。桌面端显示更多卡片并排，移动端改为单列，字体大小也做了调整。</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 底部链接 / 致谢 -->
+    <div class="foot-links">
+        <div class="copy">© 页面说明 · 非官方介绍</div>
+        <div class="link-group">
+            <a href="https://m-home-k1sports.com">K1体育</a>
+            <span style="color: #b8ab99; margin-right: 12px;">·</span>
+            <a href="#" style="pointer-events: none; opacity: 0.5;">浏览建议</a>
+            <a href="#" style="pointer-events: none; opacity: 0.5;">使用指南</a>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>
